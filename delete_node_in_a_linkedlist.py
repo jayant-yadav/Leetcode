@@ -1,3 +1,5 @@
+# https://leetcode.com/explore/interview/card/top-interview-questions-easy/93/linked-list/553/
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
