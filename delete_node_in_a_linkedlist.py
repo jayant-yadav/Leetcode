@@ -12,32 +12,48 @@ class Solution:
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
-        # BUG: how to input linkedlist?
-        temp = ListNode(None)
-        temp.next = head
-        while temp.next != None:
-            if temp.next.next.val == node.val:
-                break
-            temp = temp.next
+
+        node.val = node.next.val
+        node.next = node.next.next
+
+
+if __name__ == '__main__':
+    head = None # head is not a node initially.
+    temp = ListNode(None)
+    ls = [1,2,3,4,5,6]
+
+    for i in ls:
+        node = ListNode(None)
+        node.val = i
+        if head == None:
+            head = node
+            temp.next = head
         
-        temp.next = temp.next.next
-                
+        else:
+            temp.next.next = node                                                                                                                 
+        temp.next = node
 
+    print(f'following is the full LL:')
+    temp = head
+    while temp != None:
+        print(temp.val)
+        temp = temp.next
 
-
-
-if __name__ == "__main__":
-
-    l1 = ListNode(4)
-    l2 = ListNode(5)
-    l3 = ListNode(6)
-    l1.next = l2
-    l2.next = l3
-    l = ListNode(None)
-    l.next = l1
-    while l.next != None:
-        print(l.next.val)
-        l.next = l1.next
-        break
     sol = Solution()
-    sol.deleteNode(5)
+
+    delnode = head
+    while delnode != None:
+        if delnode.val == 4:
+            break
+        delnode = delnode.next
+
+
+    sol.deleteNode(delnode)
+
+    print(f'LL after deleting node: ')
+    temp = head
+    while temp != None:
+        print(temp.val)
+        temp = temp.next
+    
+    
